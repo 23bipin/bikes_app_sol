@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}datatable{% endblock title %}
+
+{% block content %}
+
+<main role="main" class="container">
+
+    <h3>Filter Data</h3>
+    <form method="GET" action=".">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="departure_time">Departure Date</label>
+                <input type="date" class="form-control" id="departure_time" name="departure_time">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="return_time">Return Date</label>
+                <input type="date" class="form-control" id="return_time" name="return_time">
+            </div>
+
+            <div class="form-group col-6">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="departure_station"
+                        placeholder="Departure Station" />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-6">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="destination"
+                        placeholder="Destination Station" />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-6">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="station_id"
+                        placeholder="Departure Station ID" />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group col-6">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="destination_id"
+                        placeholder="Destination Station ID" />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="distance">Distance(m)</label>
+                <input type="number" min=10 class="form-control" id="distance" placeholder="0" name="distance">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="duration">Duration(sec)</label>
+                <input type="number" min=10 class="form-control" id="duration" placeholder="0" name="duration">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <hr />
+
+    <div class="card-body">
+        <div class="table table-striped">
+            <table class="display" id="bikedataa" width="100%" cellspacing="0" style="text-align: center;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Departure Station</th>
+                        <th>Station ID</th>
+                        <th>Departure Time</th>
+                        <th>Destination</th>
+                        <th>Station ID</th>
+                        <th>Return Time</th>
+                        <th>Duration (min)</th>
+                        <th>Distance (km)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for models in queryset %}
+                    <tr>
+                        <td>{{ models.departure_station }}</td>
+                        <td>{{ models.station_id }}</td>
+                        <td>{{ models.departure_time }}</td>
+                        <td>{{ models.destination }}</td>
+                        <td>{{ models.destination_id }}</td>
+                        <td>{{ models.return_time }}</td>
+                        <td>{{ models.duration }}</td>
+                        <td>{{ models.distance }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+</main>
+<!--Range Slider-->
+
+{% endblock content %}
