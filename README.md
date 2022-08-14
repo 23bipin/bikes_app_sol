@@ -1,8 +1,20 @@
-# solita_final.2
 
 This app 
 
+
 STEPS TO BUILD THE APP:
+
+Download/clone the repository
+Install django, pandas (check requirements.txt)
+
+Run,
+$ python manage.py makemigrations helsinki_bikes
+$ python manage.py migrate 
+
+$ python manage.py data_setup
+$ python manage.py station_details
+
+$ python manage.py runserver [7000]
 
 Create a folder for project.
 
