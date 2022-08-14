@@ -71,13 +71,28 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="distance">Distance(m)</label>
-                <input type="number" min=10 class="form-control" id="distance" placeholder="0" name="distance">
+            <div class="form-group col-md-2">
+                <label for="distance">Distance(min)</label>
+                <input type="number" min=0 class="form-control" id="distance_min" placeholder="0 km"
+                    name="distance_min">
             </div>
-            <div class="form-group col-md-4">
-                <label for="duration">Duration(sec)</label>
-                <input type="number" min=10 class="form-control" id="duration" placeholder="0" name="duration">
+            <div class="form-group col-md-2">
+                <label for="duration">Distance(max)</label>
+                <input type="number" min=0 class="form-control" id="distance_max" placeholder="0 km"
+                    name="distance_max">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="distance">Duration(min)</label>
+                <input type="number" min=0 class="form-control" id="duration_min" placeholder="0 min"
+                    name="duration_min">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="duration">Duration(max)</label>
+                <input type="number" min=0 class="form-control" id="duration_max" placeholder="0 min"
+                    name="duration_max">
             </div>
         </div>
 

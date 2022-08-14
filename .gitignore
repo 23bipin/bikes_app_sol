@@ -1,1 +1,4 @@
 .venv/
+bikes_helsinki/management/commands/__pycache__/
+bikes_helsinki/migrations/__pycache__/
+bikes_helsinki/migrations/0002_alter_stationdetails_id_alter_stationdetails_namn.py

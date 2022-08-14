@@ -4,5 +4,44 @@
 {% block title %}Searchh{% endblock title %}
 
 {% block content %}
-<h2>Hello world!</h2>
+
+<main role="main" class="container">
+    <form method="GET" action=".">
+        <div class="form-group col-6">
+            <label for 'namn'>Select or Type the station name</label>
+            <select id="namn" class="form-control" name="namn">
+                <option selected>Select or Type</option>
+                {% for namn in queryset %}
+                <option value="{{ namn }}">{{ namn }}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <hr />
+
+    <div class="row">
+
+        <ul>
+            {% for stationdetails in queryset %}
+            <li>
+                <span>
+                    <b>Station Name: </b>{{ stationdetails.namn }}
+                </span> </br>
+                <span>
+                    <b>Station ID: </b>{{ stationdetails.id }} </span>
+                <span> </br>
+                    <b>Station Address: </b> {{ stationdetails.adress }} </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        {{ maps|safe }}
+    </div>
+</main>
+
 {% endblock content %}
